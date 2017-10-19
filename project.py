@@ -228,6 +228,7 @@ def showCatalog():
 @app.route('/catalog/<string:category_name>/items/')
 def showCategory(category_name):
     '''Show Handler for an individual Category'''
+    categories = session.query(Category).all()
     category = session.query(Category).filter_by(name=category_name).one()
     category_id = category.id
     items = session.query(Item).filter_by(category_id=category_id)
@@ -237,6 +238,7 @@ def showCategory(category_name):
     return render_template('category.html',
                            category=category,
                            items=items,
+                           categories=categories,
                            show_crud=show_crud)
 
 
@@ -286,7 +288,8 @@ def editCategory(category_name):
             editedCategory.name = request.form['name']
             session.add(editedCategory)
             session.commit()
-            flash('Category Successfully Edited %s' % editedCategory.name)
+            flash('Category Successfully Edited %s' % editedCategory.name,
+                  'success')
             return redirect(url_for('showCatalog'))
     else:
         return render_template('editCategory.html', category=editedCategory)
@@ -307,7 +310,8 @@ def deleteCategory(category_name):
     if request.method == 'POST':
         session.delete(deletedCategory)
         session.commit()
-        flash('Category Successfully Deleted %s' % deletedCategory.name)
+        flash('Category Successfully Deleted %s' % deletedCategory.name,
+              'success')
         return redirect(url_for('showCatalog'))
     else:
         return render_template('deleteCategory.html', category=deletedCategory)
@@ -393,7 +397,7 @@ def editItem(category_name, item_id):
         editedItem.date_updated = time_updated
         session.add(editedItem)
         session.commit()
-        flash('Item Successfully Edited %s' % editedItem.title)
+        flash('Item Successfully Edited %s' % editedItem.title, 'success')
         return redirect(url_for('showItem',
                                 category_name=category_name,
                                 item_id=editedItem.id))
@@ -421,7 +425,8 @@ def deleteItem(category_name, item_id):
     if request.method == 'POST':
         session.delete(itemToDelete)
         session.commit()
-        flash('Category Successfully Deleted %s' % itemToDelete.title)
+        flash('Category Successfully Deleted %s' % itemToDelete.title,
+              'success')
         return redirect(url_for('showCatalog'))
     else:
         return render_template('deleteItem.html',

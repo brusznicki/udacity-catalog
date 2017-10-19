@@ -1,8 +1,6 @@
 <!-- View for Show Category -->
 {% extends "main.html" %}
-
 {% block title %}{{category.name}} Films from the Film Catalog App{% endblock title %}
-
 {% block content %}
 {% include "nav.html" %}
 {% include "flash.html" %}
@@ -38,20 +36,27 @@
                         </button>
                     </a>
                 {% endif %}
-                {% for item in items %}
-                <div class="thumbnail">
-                    <div class="caption-full">
-                        <img class="img-responsive img-center" src="{{ item.image_path }}" alt="{{ item.title }}">
-                    </div>
-                    <a href = "{{url_for('showItem', category_name = item.category.name, item_id = item.id)}}">
-                        <h4>{{ item.title }}</h4>
-                        <h6 class="pull-right">Last update: {{ item.date_updated.strftime("%-d-%b-%Y at %I:%M %p") }}</h6>
-                        <h6>({{ item.category.name }})</h6>
-                    </a>
-                </div>
-                {% endfor %}
-            </div>
 
+
+                {% for item in items %}
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a href = "{{url_for('showItem', category_name = item.category.name, item_id = item.id)}}">
+                                <img class="img-responsive img-center" src="{{ item.image_path }}" alt="{{ item.title }}">
+                            </a>
+                        </div>
+                        <div class="col-sm-9">
+                            <a href = "{{url_for('showItem', category_name = item.category.name, item_id = item.id)}}">
+                                <h4>{{ item.title }}</h4>
+                                <h6>Last update: {{ item.date_updated.strftime("%-d-%b-%Y at %I:%M %p") }}</h6>
+                                <h6>({{ item.category.name }})</h6>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+            <!-- /.col-md-8-->
         </div>
         <!-- /.row -->
     </div>

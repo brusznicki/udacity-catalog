@@ -16,7 +16,7 @@ This app is a RESTful web app built using [Flask](http://flask.pocoo.org/), [pyt
 ## Quickstart
 1. Download or clone the [fullstack-nanodegree-vm repository](https://github.com/udacity/fullstack-nanodegree-vm).
 
-2. Replace the *catalog* subfolder with the contents of this repository - [Github Link]().
+2. Replace the *catalog* subfolder with the contents of this repository - [Github Link](https://github.com/brusznicki/udacity-catalog).
 
 ## Dependencies
 This app is built according to the VirtualBox / Vagrant guidelines provided in the FSDN Crud final project. Access to the Udacity vagrant file is required to quickly build out dependencies. I have forked the Vagrantfile to include other modules such as Faker TODO
@@ -50,7 +50,7 @@ Navigate to the application in your browser
 *IMPORTANT* Use *localhost* and not *0.0.0.0* or else Oauth will ot operate as intended.
 
 If all is good you'll see
-[img]()
+[img](https://i.imgur.com/trSmtqi.png)
 
 
 ## Google OAuth instructions
