@@ -47,10 +47,10 @@ Navigate to the application in your browser
 
 `http://localhost:5000/`
 
-*IMPORTANT* Use *localhost* and not *0.0.0.0* or else Oauth will ot operate as intended.
+*IMPORTANT* Use *localhost* and not *0.0.0.0* or else Oauth will not operate as intended.
 
 If all is good you'll see
-[img](https://i.imgur.com/trSmtqi.png)
+![img](https://i.imgur.com/trSmtqi.png)
 
 
 ## Google OAuth instructions
