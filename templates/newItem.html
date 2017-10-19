@@ -1,0 +1,39 @@
+<!-- View for Item Create-->
+{% block title %}New Item - Film Catalog App{% endblock title %}
+{% extends "main.html" %}
+{% block content %}
+    {% include "nav.html" %}
+    {% include "flash.html" %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-11 col-md-offset-1">
+                <h1>New Catalog Item</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-1">
+                <form action="{{ url_for('newItem',category_name = category.name)}}" method = "post">
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input type ="text" maxlength="50" class="form-control" name="title" placeholder="Title of the Film">
+                        <label for="description">Description:</label>
+                        <textarea class="form-control" maxlength="250" rows="3" name="description" placeholder="Description of the course"></textarea>
+                        <label for="image_path">Item Image:</label>
+                        <input type ="text" class="form-control" maxlength="250" name="image_path" placeholder="http://www.movie.com/movie.jpg">
+                        <button type="submit" class="btn btn-default" id="submit" type="submit">
+                            <span class="glyphicon glyphicon-film" aria-hidden="true">
+                            </span>
+                            Add Item
+                        </button>
+                        <a href = '{{url_for('showCatalog')}}'>
+                            <button class="btn btn-default">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                Cancel
+                            </button>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,44 @@
+<!-- View for Show Index -->
+{% extends "main.html" %}
+
+{% block title %}Film Catalog App{% endblock title %}
+
+{% block content %}
+    {% include "nav.html" %}
+    {% include "flash.html" %}
+
+    <!-- Page Content -->
+    <section id="catalog" class="section">
+
+        <div class="container">
+
+            <div class="row">
+
+                {% include "categories.html" %}
+
+                <div class="col-md-8">
+                    <h3>Latest Films</h4>
+                    {% for item in items %}
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <a href = "{{url_for('showItem', category_name = item.category.name, item_id = item.id)}}">
+                                   <img class="img-responsive img-center" src="{{ item.image_path }}" alt="{{ item.title }}">
+                               </a>
+                            </div>
+                            <div class="col-sm-9">
+                                <a href = "{{url_for('showItem', category_name = item.category.name, item_id = item.id)}}">
+                                    <h3>{{ item.title }} ({{ item.category.name }})</h3>
+                                    <h6>Last update: {{ item.date_updated.strftime("%-d-%b-%Y at %I:%M %p") }}</h6>
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+    <!-- /.section -->
+{% endblock %}

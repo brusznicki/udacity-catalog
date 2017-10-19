@@ -1,0 +1,28 @@
+<!-- View for Category Create-->
+{% block title %}New Category - Film Catalog App{% endblock title %}
+{% extends "main.html" %}
+{% block content %}
+    {% include "nav.html" %}
+    {% include "flash.html" %}
+    <div class="container">
+        <div class="row">
+          <div class="col-md-11 col-md-offset-1">
+            <h1>New Category</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-md-offset-1">
+            <form action="#" method = "post">
+              <div class="form-group">
+                  <label for="name">Name:</label>
+                  <input type ="text" class="form-control" maxlength="100" name="name">
+                  <div class="padding-bottom"></div>
+                    <button type="submit" class="btn btn-info btn-md" id="submit" type="submit">
+                        Add Category
+                    </button>
+              </div>
+            </form>
+          </div>
+        </div>
+    </div>
+{% endblock %}
